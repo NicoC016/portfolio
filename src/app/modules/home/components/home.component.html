@@ -1,0 +1,183 @@
+<div role="status" class="spinner" *ngIf="showLoading">
+  <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600 colorSpinner"  viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+      <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+  </svg>
+  <span class="sr-only">Loading...</span>
+</div>
+<div id="content-wrapper" *ngIf="!showLoading">
+  <div *ngFor="let item of data">
+    <header id="headerHome" #headerHome class="header header--bg">
+      <div class="container-portfolio">
+        <div class="page-section-header">
+          <div class="header__content text-center">
+            <span class="header__content__block">Hola</span>
+            <h1 class="header__content__title">Soy {{item.name}}</h1>
+            <ul class="header__content__sub-title">
+              <li>
+                <b>{{item.job}}</b>
+                <!-- <span class="padding">&#45;</span> -->
+              </li>
+              <!-- <li>WEB DEVELOPER <span class="padding">&#45;</span></li>
+              <li>PHOTOGRAPHAR</li> -->
+            </ul>
+            <a role="button" class="header__button" (click)="scrollTo('sectionAboutMe')" >Leer más</a>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    <section id="sectionAboutMe" #sectionAboutMe class="about">
+      <div class="container-portfolio about__container-narrow">
+        <div class="page-section page-section-about">
+          <h2 class="page-section__title">Sobre mí</h2>
+            <img class="page-section__title-style" src="assets/images/title-style.png" alt="">
+            <div class="row gutters-80">
+              <div class="col-md-4">
+                <div class="about__image">
+                  <img src="{{item.imagePresentation}}" alt="">
+                </div>
+              </div>
+              <div class="col-md-8 about__content">
+                <p class="about__description">{{item.aboutMe}}</p>
+                <div class="row row--margin-top">
+                  <div class="col-md-4">
+                    <p class="about__bio"><strong>Nombre :</strong> {{item.name}}</p>
+                    <p class="about__bio"><strong>Edad :</strong> {{item.age}} años</p>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="about__bio"><strong>Trabajo :</strong> {{item.job}}</p>
+                    <p class="about__bio"><strong>Dirección :</strong> {{item.direction}}</p>
+                  </div>  
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <a role="button" class="button button--colorful button--margin" href="assets/pdf/Daniela Conil.pdf" download>Descargar CV</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="mySkills" #mySkills class="skill skill--bg">
+      <div class="container-portfolio skill__container-narrow">
+        <div class="page-section">
+          <h2 class="page-section__title page-section__title--white">Mis Skills</h2>
+          <img class="page-section__title-style" src="assets/images/title-style-white.png" alt="">
+          <p class="page-section__paragraph page-section__paragraph--white">{{item.skillInformation}}</p>
+          <div class="row gutters-60">
+            <div class="col-md-4" *ngFor="let skill of item.skill">
+              <div class="thumbnail text-center">
+                <img [src]="skill.urlImageLogo" alt="" [ngStyle]="{'width': getWidthLogo(skill.urlImageLogo)? '70px': skill.urlImageLogo.includes('facebook')? '67px'  : 'auto'}">
+                <h4 class="skill__single-part__title">{{skill.name}} </h4>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" [ngStyle]="{'width': skill.rate + '%'}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="portfolio" #portfolio class="portfolio">
+      <div class="container-portfolio-portfolio">
+        <div class="page-section">
+          <h2 class="page-section__title">Mis notas</h2>
+          <img class="page-section__title-style" src="assets/images/title-style.png" alt="">
+          <div class="row gutters-40">
+            <div class="col-md-4" *ngFor="let notes of item.notes">
+              <div class="portfolio__single-section mix category-a category-b category-c" data-order="1">
+                <img class="portfolio__single-section__image img-responsive" src="{{notes.urlImage}}" alt="">
+                <div class="portfolio__single-section__overlay">
+                  <div class="overlay-content">
+                    <h4>{{notes.title}}</h4>
+                  </div>
+                  <div class="portfolio__single-section__search-icon">
+                    <a href="{{notes.urlNota}}" target="_blank"><img src="assets/images/search-icon.png" alt=""></a>
+                    <p>Leer nota completa</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-md-4">
+              <div class="portfolio__single-section mix category-a category-c" data-order="2">
+                <img class="portfolio__single-section__image img-responsive" src="assets/images/portfolio-2.png" alt="">
+                <div class="portfolio__single-section__overlay">
+                  <div class="overlay-content">
+                    <h4>WEBSITE DESIGN</h4>
+                    <p>Designer</p>
+                  </div>
+                  <div class="portfolio__single-section__search-icon">
+                    <a href="#"><img src="assets/images/search-icon.png" alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="portfolio__single-section mix category-c" data-order="3">
+                <img class="portfolio__single-section__image img-responsive" src="assets/images/portfolio-3.png" alt="">
+                <div class="portfolio__single-section__overlay">
+                  <div class="overlay-content">
+                    <h4>LOGO DESIGN</h4>
+                    <p>Designer</p>
+                  </div>
+                  <div class="portfolio__single-section__search-icon">
+                    <a href="#"><img src="assets/images/search-icon.png" alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row gutters-40">
+            <div class="col-md-4">
+              <div class="portfolio__single-section mix category-b category-d" data-order="4">
+                <img class="portfolio__single-section__image img-responsive" src="assets/images/portfolio-4.png" alt="">
+                <div class="portfolio__single-section__overlay">
+                  <div class="overlay-content">
+                    <h4>PHOTOGRAPHY</h4>
+                    <p>photographer</p>
+                  </div>
+                  <div class="portfolio__single-section__search-icon">
+                    <a href="#"><img src="assets/images/search-icon.png" alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="portfolio__single-section mix category-b category-d" data-order="5">
+                <img class="portfolio__single-section__image img-responsive" src="assets/images/portfolio-5.png" alt="">
+                <div class="portfolio__single-section__overlay">
+                  <div class="overlay-content">
+                    <h4>WEBSITE DESIGN</h4>
+                    <p>Designer</p>
+                  </div>
+                  <div class="portfolio__single-section__search-icon">
+                    <a href="#"><img src="assets/images/search-icon.png" alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="portfolio__single-section mix category-d" data-order="6">
+                <img class="portfolio__single-section__image img-responsive" src="assets/images/portfolio-6.png" alt="">
+                <div class="portfolio__single-section__overlay">
+                  <div class="overlay-content">
+                    <h4>LOGO DESIGN</h4>
+                    <p>Designer</p>
+                  </div>
+                  <div class="portfolio__single-section__search-icon">
+                    <a href="#"><img src="assets/images/search-icon.png" alt=""></a>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

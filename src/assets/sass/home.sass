@@ -1,0 +1,290 @@
+.spinner
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+ul
+  padding-left: 0
+  li
+    list-style-type: none
+a
+  &:hover, &:focus
+    text-decoration: none
+
+.header--bg
+  background: url("../images/header-background.png") no-repeat
+  background-size: cover
+  position: relative
+  z-index: 1
+  &:after
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background: -webkit-linear-gradient(90deg, rgba(108, 76, 206, 0.9) 0%, rgba(127, 86, 253, 0.9) 100%)
+    z-index: -1
+.page-section-header
+  margin: 0px 35px
+  height: 710px
+.header__content
+  padding-top: 168px
+  padding-bottom: 140px
+  .header__content__block
+    font-size: 50px
+    font-weight: bold
+    color: #fff
+  .header__content__title
+    font-size: 50px
+    font-weight: bold
+    color: #fff
+    margin-top: 0
+  .header__content__sub-title
+    li
+      display: inline-block
+      font-size: 15px
+      color: #e6e6e6
+    .padding
+      padding-right: 13px
+      padding-left: 13px
+  .header__button
+    padding: 11px 30px
+    background-color: #fff
+    border-radius: 30px
+    display: inline-block
+    font-size: 15px
+    color: #7f56fd
+    font-weight: bold
+    margin-top: 30px
+
+.Rectangle_
+  background-image: -ms-linear-gradient(90deg, rgb(108, 76, 206) 0%, rgb(127, 86, 253) 100%)
+  opacity: 0.929
+  position: absolute
+  left: 0px
+  top: 0px
+  width: 1600px
+  height: 800px
+  z-index: 447
+
+.social-icon
+  text-align: right
+  margin-bottom: 60px
+  ul li
+    display: inline-block
+    a
+      color: #fff
+
+.page-section 
+  margin: 0px 45px 100px 45px
+
+.page-section__title
+  font-size: 35px
+  color: #273f59
+  text-align: center
+  font-weight: bold
+
+.page-section__title--white
+  color: #fff
+
+.page-section__title-style
+  display: block
+  margin-right: auto
+  margin-left: auto
+  margin-bottom: 30px
+
+.page-section__paragraph
+  font-size: 15px
+  color: #5d5d5d
+  max-width: 540px
+  text-align: center
+  margin-right: auto
+  margin-left: auto
+  margin-bottom: 60px
+
+.page-section__paragraph--white
+  color: #fff
+  line-height: 1.8
+
+.about__description
+  font-size: 16px
+  color: #636262
+  padding-bottom: 25px
+  border-bottom: 1px #C1C1C1 dashed
+  display: block
+
+.about__container-narrow
+  position: relative
+  top: 60px
+
+.about__bio
+  font-size: 15px
+  color: #636262
+
+  strong
+    font-size: 15px
+    color: #2c4055
+    
+
+.gutters-80
+  &.row
+    display: grid
+    grid-template-columns: 380px auto
+    gap: 20px
+
+
+.portfolio__button-group .mixitup-control-active
+  background-color: #7F56FD
+  color: #fff
+
+.skill--bg
+  background: url("../images/skill-background.png") no-repeat
+  background-size: cover
+  position: relative
+  display: flex
+  justify-content: center
+  z-index: 1
+  &:after
+    content: ''
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background-color: rgba(120, 88, 221, 0.9)
+    z-index: -1
+
+.skill__container-narrow
+  position: relative
+  top: 55px
+  height: 100%
+  width: 100%
+
+.skill .thumbnail
+  padding: 10px 90px
+  background-color: #fff
+  border-radius: 10px
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2)
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2)
+  display: flex
+  flex-direction: column
+  align-items: center
+  .progress
+    height: 8px
+    border-radius: 10px
+    width: 100%
+    background-color: #E1E1E1
+    .progress-bar
+      height: 8px
+      background-color: #C99AFF
+
+.skill__single-part__title
+  font-size: 15px
+  color: #273f59
+  margin-bottom: 30px
+  margin-top: 5px
+  font-weight: bold
+
+.gutters-60
+  &.row
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    gap: 20px
+.gutters-70
+  &.row
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    gap: 20px
+.gutters-140
+  &.row
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    gap: 20px
+
+.portfolio .button
+  display: inline-block
+  padding: 12px 45px 8px 45px
+  margin-bottom: 20px
+
+.container-portfolio-portfolio
+  position: relative
+  top: 53px
+
+.portfolio__button-group
+  text-align: center
+  margin-bottom: 60px
+
+.portfolio__single-section
+  position: relative
+  overflow: hidden
+  margin-bottom: 40px
+
+.portfolio__single-section__image
+  display: block
+  height: 350px
+
+.portfolio__single-section
+  h4
+    font-size: 20px
+    
+    font-weight: bold
+    color: #fff
+
+  p
+    font-weight: 15px
+    color: #fff
+    
+    font-weight: bold
+
+.portfolio__single-section__search-icon
+  position: absolute
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  width: 100%
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  transform: translateY(-50%)
+
+.portfolio__single-section .overlay-content
+  position: absolute
+  bottom: 25px
+  width: 100%
+  display: flex
+  justify-content: center
+  z-index: 10
+
+.portfolio__single-section__overlay
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  height: 100%
+  width: 100%
+  opacity: 0
+  -webkit-transition: .3s ease
+  transition: .3s ease
+  background-color: rgba(133, 91, 249, 0.9)
+  border-radius: 10px
+
+.portfolio__single-section:hover .portfolio__single-section__overlay
+  opacity: 1
+
+.gutters-40
+  &.row
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    gap: 20px
+
+@media (max-width: 991px)
+  .portfolio__single-section
+    max-width: 340px
+    margin-right: auto
+    margin-left: auto
+
+@media only screen and (max-width: 950px)
+  .gutters-80,.gutters-60, .gutters-140, .gutters-40, .gutters-70 
+    grid-template-columns: 300px !important
+    justify-content: center
