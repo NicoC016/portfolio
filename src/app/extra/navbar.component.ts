@@ -36,10 +36,10 @@ import { Component } from '@angular/core';
         </div>
         <div  [hidden]="!showMobile" id="mobile-menu">
           <div class="space-y-1 px-2 pb-3 pt-2">
-            <span (click)="scrollTo('headerHome')" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Inicio</span>
-            <span (click)="scrollTo('sectionAboutMe')" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Sobre mi</span>
-            <span (click)="scrollTo('mySkills')" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Mis skills</span>
-            <span (click)="scrollTo('portfolio')" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Notas</span>
+            <span (click)="scrollTo('headerHome')" [ngClass]="{'bg-gray-900': headerHome}" class="block rounded-md px-3 py-2 text-base font-medium text-white" aria-current="page">Inicio</span>
+            <span (click)="scrollTo('sectionAboutMe')" [ngClass]="{'bg-gray-900': sectionAboutMe}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Sobre mi</span>
+            <span (click)="scrollTo('mySkills')" [ngClass]="{'bg-gray-900': mySkills}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Mis skills</span>
+            <span (click)="scrollTo('portfolio')" [ngClass]="{'bg-gray-900': portfolio}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Notas</span>
           </div>
         </div>
     </nav>
@@ -52,19 +52,23 @@ export class NavbarComponent {
   public mySkills! :boolean;
   public portfolio! :boolean;
   scrollTo(parameter:string ){
-    this.headerHome = false;
-    this.sectionAboutMe = false;
-    this.mySkills = false;
-    this.portfolio = false;
+    this.setMenu();
     //@ts-ignore
     this[parameter] = true;
+    debugger
     const element:HTMLElement | null = document.getElementById(parameter);
     element?.scrollIntoView({behavior: 'smooth',block:'start', inline:'nearest'});
     return this.show(); 
   }
 
+  setMenu(){
+    this.headerHome = false;
+    this.sectionAboutMe = false;
+    this.mySkills = false;
+    this.portfolio = false;
+  }
+
   show(){ 
-    debugger
     if(window.navigator.userAgent.includes('Mobile'))this.showMobile = !this.showMobile;
   }
 
