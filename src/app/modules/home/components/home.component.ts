@@ -27,8 +27,7 @@ export class HomeComponent {
 
   
   scrollTo(parameter:any){
-    //@ts-ignore
-    return this[parameter].nativeElement.scrollIntoView({behavior: 'smooth'}, false)
+    return (this as any)[parameter].nativeElement.scrollIntoView({behavior: 'smooth'}, false)
   }
 
   getWidthLogo(url:any){

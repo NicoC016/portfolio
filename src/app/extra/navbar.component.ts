@@ -52,16 +52,14 @@ export class NavbarComponent {
   public mySkills! :boolean;
   public portfolio! :boolean;
   scrollTo(parameter:string ){
-    this.setMenu();
-    //@ts-ignore
-    this[parameter] = true;
-    debugger
+    this.show(); 
+    this.setValue();
+    (this as any)[parameter] = true;
     const element:HTMLElement | null = document.getElementById(parameter);
-    element?.scrollIntoView({behavior: 'smooth',block:'start', inline:'nearest'});
-    return this.show(); 
+    return element?.scrollIntoView({behavior: 'smooth',block:'start', inline:'nearest'});
   }
 
-  setMenu(){
+  setValue(){
     this.headerHome = false;
     this.sectionAboutMe = false;
     this.mySkills = false;

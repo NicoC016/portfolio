@@ -15,14 +15,14 @@ import { faPhone, faDirections, faMailBulk } from '@fortawesome/free-solid-svg-i
       <footer class="footer footer--bg" *ngFor="let item of data">
         <div class="container-portfolio text-center">
           <h1 class="footer__title">{{item.name}}</h1>
-          <ul class="footer__contact-information"*ngFor="let contact of item.informationContact" >
+          <ul class="footer__contact-information" [ngStyle]="{'flex-direction': !isMobile? 'row' : 'column'}" *ngFor="let contact of item.informationContact" >
             <li><a href="tel:{{contact.phone}}"><fa-icon class="p-1" [icon]="faPhone"></fa-icon>{{contact.phone}}</a></li>
             <li><a href="mailto:{{contact.mail}}"><fa-icon [icon]="faMailBulk"></fa-icon> {{contact.mail}}</a></li>
             <li><a><fa-icon [icon]="faDirection"></fa-icon> {{item.direction}}</a></li>
             <li><a href="{{contact.linkedn}}" target="_blank"><fa-icon [icon]="faLinkedn"></fa-icon></a></li>
           </ul>
         </div>
-        <hr style="border: 0;border-top: 1px solid #525B60;display:block;margin-top: 40px;">
+        <hr>
         <div class="container-portfolio text-center">
           <p class="footer__paragraph">Copyright &copy; {{yearToday}}, All Rights Reserved.</p>
         </div>
@@ -32,6 +32,7 @@ import { faPhone, faDirections, faMailBulk } from '@fortawesome/free-solid-svg-i
 export class FooterComponent implements OnInit {
   constructor( public homeService: HomeService) {
   };
+  public isMobile = false;
   public yearToday!:String;
   public data: DataModel[] = [];
   public faLinkedn =  faLinkedin;
@@ -40,6 +41,7 @@ export class FooterComponent implements OnInit {
   public faMailBulk = faMailBulk;
   static DataEmmit:EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
+    this.mobileVerify();
     this.getData();
     this.yearToday = new Date().getFullYear().toString();
   }
@@ -48,6 +50,10 @@ export class FooterComponent implements OnInit {
       this.formatObject(res);
       FooterComponent.DataEmmit.emit(this.data);
     });
+  }
+
+  mobileVerify(){ 
+    this.isMobile = window.navigator.userAgent.includes('Mobile');
   }
 
   formatObject(data:any){
