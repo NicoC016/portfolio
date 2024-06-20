@@ -64,7 +64,8 @@ export class NavbarComponent {
   }
 
   show(){ 
-    if(window.navigator.userAgent.includes('mobile'))this.showMobile = !this.showMobile;
+    debugger
+    if(window.navigator.userAgent.includes('Mobile'))this.showMobile = !this.showMobile;
   }
 
 }
