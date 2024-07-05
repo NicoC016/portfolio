@@ -29,6 +29,7 @@ import { Component } from '@angular/core';
                   <span (click)="scrollTo('sectionAboutMe')" [ngClass]="{'bg-gray-900': sectionAboutMe}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Sobre mi</span>
                   <span (click)="scrollTo('mySkills')" [ngClass]="{'bg-gray-900': mySkills}"  class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Mis skills</span>
                   <span (click)="scrollTo('portfolio')" [ngClass]="{'bg-gray-900': portfolio}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Notas</span>
+                  <span (click)="scrollTo('videos')" [ngClass]="{'bg-gray-900': videos}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Videos</span>
                 </div>
               </div>
             </div>
@@ -40,6 +41,7 @@ import { Component } from '@angular/core';
             <span (click)="scrollTo('sectionAboutMe')" [ngClass]="{'bg-gray-900': sectionAboutMe}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Sobre mi</span>
             <span (click)="scrollTo('mySkills')" [ngClass]="{'bg-gray-900': mySkills}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Mis skills</span>
             <span (click)="scrollTo('portfolio')" [ngClass]="{'bg-gray-900': portfolio}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Notas</span>
+            <span (click)="scrollTo('videos')" [ngClass]="{'bg-gray-900': videos}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Videos</span>
           </div>
         </div>
     </nav>
@@ -51,6 +53,7 @@ export class NavbarComponent {
   public sectionAboutMe! :boolean;
   public mySkills! :boolean;
   public portfolio! :boolean;
+  public videos! :boolean;
   scrollTo(parameter:string ){
     this.show(); 
     this.setValue();
@@ -64,6 +67,7 @@ export class NavbarComponent {
     this.sectionAboutMe = false;
     this.mySkills = false;
     this.portfolio = false;
+    this.videos = false;
   }
 
   show(){ 

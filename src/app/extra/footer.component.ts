@@ -57,7 +57,7 @@ export class FooterComponent implements OnInit {
   }
 
   formatObject(data:any){
-    data.forEach((element:any, index:number) => {
+    data.forEach((element:any) => {
       const dataNew: DataModel = {
         imagePresentation:element.imagePresentation.stringValue,
         aboutMe: element.aboutMe.stringValue,
@@ -81,9 +81,12 @@ export class FooterComponent implements OnInit {
           urlNota: res.mapValue.fields.urlNota.stringValue,
           title: res.mapValue.fields.title.stringValue,
         })),
+        videos:element.videos.arrayValue.values.map((res:any)=>({
+        
+          url: res.mapValue.fields.url.stringValue
+        }))
       };
       this.data.push(dataNew);
     });
   }
-
 }

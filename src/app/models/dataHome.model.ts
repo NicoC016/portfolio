@@ -9,6 +9,7 @@ export class DataModel{
     notes!: NotesModel[];
     skill!: SkillModel[];
     informationContact!:contactModel[];
+    videos: VideosModel[];
 
     constructor(){
         this.name = '';
@@ -21,6 +22,7 @@ export class DataModel{
         this.notes = [];
         this.skill = [];
         this.informationContact = [];
+        this.videos = [];
     }
 }
 
@@ -40,4 +42,8 @@ export class contactModel{
     linkedn!: string;
     mail!: string;
     phone!: string
+}
+
+export class VideosModel{
+    url!:string
 }

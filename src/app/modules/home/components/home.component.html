@@ -104,5 +104,18 @@
         </div>
       </div>
     </section>
+    <section id="videos" #videos class="skill skill--bg">
+      <div class="container-portfolio skill__container-narrow">
+        <div class="page-section">
+          <h2 class="page-section__title page-section__title--white">Videos</h2>
+          <img class="page-section__title-style" src="assets/images/title-style-white.png" alt="">
+          <div class="container-videos">
+            <div class="video-components" *ngFor="let video of item.videos">
+              <video-format [url]="video.url"></video-format>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
